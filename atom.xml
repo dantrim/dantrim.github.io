@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://dantrim.github.io/atom.xml" rel="self"/>
   <link href="http://dantrim.github.io/"/>
-  <updated>2020-06-03T14:20:01-07:00</updated>
+  <updated>2020-06-03T14:27:46-07:00</updated>
   <id>http://dantrim.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://dantrim.github.io/blog/2020/06/03/hello-world/"/>
+    <updated>2020-06-03T14:23:31-07:00</updated>
+    <id>http://dantrim.github.io/blog/2020/06/03/hello-world</id>
+    <content type="html"><![CDATA[<p>This is a trial of Octopress.</p>
+]]></content>
+  </entry>
   
 </feed>
