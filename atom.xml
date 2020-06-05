@@ -4,7 +4,7 @@
   <title><![CDATA[dantrim]]></title>
   <link href="http://dantrim.github.io/atom.xml" rel="self"/>
   <link href="http://dantrim.github.io/"/>
-  <updated>2020-06-05T12:25:51-07:00</updated>
+  <updated>2020-06-05T16:07:04-07:00</updated>
   <id>http://dantrim.github.io/</id>
   <author>
     <name><![CDATA[Daniel Joseph Antrim]]></name>
@@ -21,6 +21,91 @@
     <content type="html"><![CDATA[<p>Here I will create some initial thoughts on how the process of setting up
 an Octopress blog is, specifically when hosting it on my personal
 <a href="https://dantrim.github.io">github pages website</a>.</p>
+
+<h2 id="deploying-blog-entries-after-a-fresh-clone">Deploying Blog Entries after a Fresh Clone</h2>
+
+<p>If you checkout your blog&#39;s repository in a new location (e.g.
+a new directory or a new machine), you will first need to sync
+up the <code>_deploy</code> directory with the remote&#39;s <code>master</code> branch
+before running <code>rake deploy</code>. Run the following steps to achieve
+this:</p>
+
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="lineno">1</span> <span class="gp">$</span> git clone git@github.com:&lt;repo&gt;.git
+<span class="lineno">2</span> <span class="gp">$</span> <span class="nb">cd</span> &lt;repo&gt;
+<span class="lineno">3</span> <span class="gp">$</span> git checkout <span class="nb">source</span> <span class="c"># source is the working branch</span>
+<span class="lineno">4</span> <span class="gp">$</span> mkdir _deploy
+<span class="lineno">5</span> <span class="gp">$</span> <span class="nb">cd </span>_deploy
+<span class="lineno">6</span> <span class="gp">$</span> git init
+<span class="lineno">7</span> <span class="gp">$</span> git remote add origin git@github.com:&lt;repo&gt;.git
+<span class="lineno">8</span> <span class="gp">$</span> git pull origin master <span class="c"># master is the public view of the blog</span>
+<span class="lineno">9</span> <span class="gp">$</span> <span class="nb">cd</span> ..</code></pre></div>
+
+<p>Here we use a new method.<sup id="fnref1"><a href="#fn1">1</a></sup></p>
+
+<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/test.cpp' target='_blank'>view raw</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">// this code has been embedded from the file test.cxx!</span>
+</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello from embedded code!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;cpp&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/hello.py' target='_blank'>view raw</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="k">def</span> <span class="nf">coolio</span><span class="p">()</span> <span class="p">:</span>
+</span><span class='line'>    <span class="c"># this is embedded</span>
+</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;butts&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__coolio__&quot;</span> <span class="p">:</span>
+</span><span class='line'>    <span class="n">coolio</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>This is a &quot;quote&quot;.</p>
+
+<p>This is <del>struck-out</del>.</p>
+
+<p>Hello <u>world</u>. Hello <em>world</em>.</p>
+
+<p>This is the 3<sup>rd</sup> time.</p>
+
+<p><mark>This is highlighted</mark></p>
+
+<p>This sentence has a footnote.<sup id="fnref1"><a href="#fn1">1</a></sup></p>
+
+<p>And so is this.<sup id="fnref1"><a href="#fn1">1</a></sup><sup id="fnref2"><a href="#fn2">2</a></sup></p>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p>Footnote 1&nbsp;<a href="#fnref1">&#8617;</a></p>
+</li>
+
+<li id="fn2">
+<p>Footnote 2&nbsp;<a href="#fnref2">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
 ]]></content>
   </entry>
   
