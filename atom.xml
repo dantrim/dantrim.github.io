@@ -4,7 +4,7 @@
   <title><![CDATA[dantrim]]></title>
   <link href="http://dantrim.github.io/atom.xml" rel="self"/>
   <link href="http://dantrim.github.io/"/>
-  <updated>2020-06-05T12:20:38-07:00</updated>
+  <updated>2020-06-05T12:25:51-07:00</updated>
   <id>http://dantrim.github.io/</id>
   <author>
     <name><![CDATA[Daniel Joseph Antrim]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Running Notes on Setting Up Octopress]]></title>
+    <link href="http://dantrim.github.io/blog/2020/06/05/running-notes-on-setting-up-octopress/"/>
+    <updated>2020-06-05T12:24:25-07:00</updated>
+    <id>http://dantrim.github.io/blog/2020/06/05/running-notes-on-setting-up-octopress</id>
+    <content type="html"><![CDATA[<p>Here I will create some initial thoughts on how the process of setting up
+an Octopress blog is, specifically when hosting it on my personal
+<a href="https://dantrim.github.io">github pages website</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello World]]></title>
