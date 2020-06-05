@@ -4,7 +4,7 @@
   <title><![CDATA[dantrim]]></title>
   <link href="http://dantrim.github.io/atom.xml" rel="self"/>
   <link href="http://dantrim.github.io/"/>
-  <updated>2020-06-05T12:11:27-07:00</updated>
+  <updated>2020-06-05T12:20:38-07:00</updated>
   <id>http://dantrim.github.io/</id>
   <author>
     <name><![CDATA[Daniel Joseph Antrim]]></name>
@@ -21,6 +21,8 @@
     <content type="html"><![CDATA[<p>This is a trial of Octopress.</p>
 
 <p>This is a trial of Octopress using a different repo.</p>
+
+<p><strong>And this is yet another trial!</strong></p>
 ]]></content>
   </entry>
   
