@@ -4,7 +4,7 @@
   <title><![CDATA[dantrim]]></title>
   <link href="http://dantrim.github.io/atom.xml" rel="self"/>
   <link href="http://dantrim.github.io/"/>
-  <updated>2020-06-05T16:07:04-07:00</updated>
+  <updated>2020-06-05T17:10:03-07:00</updated>
   <id>http://dantrim.github.io/</id>
   <author>
     <name><![CDATA[Daniel Joseph Antrim]]></name>
@@ -30,19 +30,7 @@ up the <code>_deploy</code> directory with the remote&#39;s <code>master</code> 
 before running <code>rake deploy</code>. Run the following steps to achieve
 this:</p>
 
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="lineno">1</span> <span class="gp">$</span> git clone git@github.com:&lt;repo&gt;.git
-<span class="lineno">2</span> <span class="gp">$</span> <span class="nb">cd</span> &lt;repo&gt;
-<span class="lineno">3</span> <span class="gp">$</span> git checkout <span class="nb">source</span> <span class="c"># source is the working branch</span>
-<span class="lineno">4</span> <span class="gp">$</span> mkdir _deploy
-<span class="lineno">5</span> <span class="gp">$</span> <span class="nb">cd </span>_deploy
-<span class="lineno">6</span> <span class="gp">$</span> git init
-<span class="lineno">7</span> <span class="gp">$</span> git remote add origin git@github.com:&lt;repo&gt;.git
-<span class="lineno">8</span> <span class="gp">$</span> git pull origin master <span class="c"># master is the public view of the blog</span>
-<span class="lineno">9</span> <span class="gp">$</span> <span class="nb">cd</span> ..</code></pre></div>
-
-<p>Here we use a new method.<sup id="fnref1"><a href="#fn1">1</a></sup></p>
-
-<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/test.cpp' target='_blank'>view raw</a></figcaption>
+<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/2020-06-05/update_deploy.sh' target='_blank'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -53,44 +41,157 @@ this:</p>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
-</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#!/bin/bash</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">// this code has been embedded from the file test.cxx!</span>
-</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello from embedded code!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;cpp&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
+</span><span class='line'>git clone git@github.com:&lt;repo&gt;.git
+</span><span class='line'><span class="nb">cd</span> &lt;repo&gt;
+</span><span class='line'>git checkout <span class="nb">source</span> <span class="c"># source is the working branch</span>
+</span><span class='line'>mkdir _deploy
+</span><span class='line'><span class="nb">cd </span>_deploy
+</span><span class='line'>git init
+</span><span class='line'>git remote add origin git@github.com:&lt;repo&gt;.git
+</span><span class='line'>git pull origin master <span class="c"># master is the public view of the blog</span>
+</span><span class='line'><span class="nb">cd</span> ..
 </span></code></pre></td></tr></table></div></figure>
 
-<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/hello.py' target='_blank'>view raw</a></figcaption>
+<h2 id="other-misc-changes">Other Misc Changes</h2>
+
+<h3 id="updating-the-code-formatting-functions">Updating the code formatting functions</h3>
+
+<p>I have found, also, that using the <code>include_code</code> blocks are apparently
+the cleanest way to get code to be formatted. Though I have made
+some modifications.</p>
+
+<h3 id="removing-bulky-captions">Removing bulky captions</h3>
+
+<p>To <code>plugins/include_code.rb</code> I have made the changes,
+<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/2020-06-05/include_code_snippet.rb' target='_blank'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='py'><span class='line'><span class="k">def</span> <span class="nf">coolio</span><span class="p">()</span> <span class="p">:</span>
-</span><span class='line'>    <span class="c"># this is embedded</span>
-</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;butts&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__coolio__&quot;</span> <span class="p">:</span>
-</span><span class='line'>    <span class="n">coolio</span><span class="p">()</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="no">Dir</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">code_path</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">code</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span>
+</span><span class='line'>  <span class="vi">@filetype</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">extname</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="vi">@filetype</span><span class="o">.</span><span class="n">nil?</span>
+</span><span class='line'>  <span class="n">title</span> <span class="o">=</span> <span class="vi">@title</span> <span class="p">?</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="vi">@title</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="n">file</span><span class="o">.</span><span class="n">basename</span><span class="si">}</span><span class="s2">)&quot;</span> <span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">basename</span>
+</span><span class='line'>  <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;/</span><span class="si">#{</span><span class="n">code_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="vi">@file</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="c1">#source = &quot;&lt;figure class=&#39;code&#39;&gt;&lt;figcaption&gt;&lt;span&gt;#{title}&lt;/span&gt; &lt;a href=&#39;#{url}&#39;&gt;download&lt;/a&gt;&lt;/figcaption&gt;\n&quot;</span>
+</span><span class='line'>  <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;&lt;figure class=&#39;code&#39;&gt;&lt;figcaption&gt; &lt;a href=&#39;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39; target=&#39;_blank&#39;&gt;download&lt;/a&gt;&lt;/figcaption&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="n">source</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">HighlightCode</span><span class="o">::</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="vi">@filetype</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/figure&gt;&quot;</span>
+</span><span class='line'>  <span class="no">TemplateWrapper</span><span class="o">::</span><span class="n">safe_wrap</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
+That is, I have replaced the original line (the commented out line in the above snippet)
+with the line immediately following it.
+This change removes the figure caption title and minimizes the &quot;download&quot;
+tag.</p>
 
-<p>This is a &quot;quote&quot;.</p>
+<h3 id="use-github-colors-for-syntax-highlighting">Use Github colors for syntax highlighting</h3>
 
-<p>This is <del>struck-out</del>.</p>
+<p>I have taken the <code>github.css</code> file from the
+repository <a href="https://github.com/aahan/pygments-github-style">aahan/pygments-github-style</a>
+and have added them to the <code>pre-code</code> block of the `sass/partials/_syntax.scss file:
+<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/2020-06-05/pre_code_snippet.scss' target='_blank'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nc">.pre-code</span> <span class="p">{</span>
+</span><span class='line'>  <span class="na">font-family</span><span class="o">:</span> <span class="nv">$mono</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">overflow</span><span class="o">:</span> <span class="no">scroll</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">overflow-y</span><span class="o">:</span> <span class="no">hidden</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">display</span><span class="o">:</span> <span class="no">block</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">padding</span><span class="o">:</span> <span class="mf">.8</span><span class="kt">em</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">overflow-x</span><span class="o">:</span> <span class="no">auto</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.45</span><span class="kt">em</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">background</span><span class="o">:</span> <span class="mh">#ffffff</span> <span class="nv">$noise-bg</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">color</span><span class="o">:</span> <span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="nt">span</span> <span class="p">{</span> <span class="na">font-style</span><span class="o">:</span> <span class="no">normal</span> <span class="nv">!important</span><span class="p">;</span> <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nc">.hll</span> <span class="p">{</span> <span class="na">background-color</span><span class="o">:</span> <span class="mh">#f8f8f8</span><span class="p">;</span> <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="mh">#ccc</span><span class="p">;</span> <span class="na">padding</span><span class="o">:</span> <span class="mi">6</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span> <span class="na">border-radius</span><span class="o">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.c</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="nb">teal</span><span class="p">;</span> <span class="na">font-style</span><span class="o">:</span> <span class="no">italic</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.err</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="mh">#a61717</span><span class="p">;</span> <span class="na">background-color</span><span class="o">:</span> <span class="mh">#e3d2d2</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.k</span> <span class="p">{</span> <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.o</span> <span class="p">{</span> <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.cm</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="mh">#999988</span><span class="p">;</span> <span class="na">font-style</span><span class="o">:</span> <span class="no">italic</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.cp</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="mh">#999999</span><span class="p">;</span> <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="c1">// ...</span>
+</span><span class='line'>  <span class="c1">// many lines not shown</span>
+</span><span class='line'>  <span class="c1">// ...</span>
+</span><span class='line'>  <span class="nc">.ss</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="mh">#990073</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.bp</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="mh">#999999</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.vc</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="nb">teal</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.vg</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="nb">teal</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.vi</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="nb">teal</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.il</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="mh">#009999</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.gc</span> <span class="p">{</span> <span class="na">color</span><span class="o">:</span> <span class="mh">#999</span><span class="p">;</span> <span class="na">background-color</span><span class="o">:</span> <span class="mh">#EAF2F5</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="nt">div</span> <span class="p">{</span> <span class="nc">.gd</span><span class="o">,</span> <span class="nc">.gd</span> <span class="nc">.x</span><span class="o">,</span> <span class="nc">.gi</span><span class="o">,</span> <span class="nc">.gi</span> <span class="nc">.x</span> <span class="p">{</span> <span class="na">display</span><span class="o">:</span> <span class="no">inline</span><span class="o">-</span><span class="no">block</span><span class="p">;</span> <span class="na">width</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure> </p>
 
-<p>Hello <u>world</u>. Hello <em>world</em>.</p>
+<p>To get the highlighted text to appear to be actually highlighted within the
+<code>include_code</code> blocks with the Github syntax highlighting applied, I also updated
+the  <code>.gist .highlight</code> block within the the <code>sass/partials/_syntax.scss</code> file
+<figure class='code'><figcaption> <a href='http://dantrim.github.io/downloads/code/2020-06-05/text_highlight_snippet.scss' target='_blank'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nc">.gist</span> <span class="nc">.highlight</span><span class="o">,</span> <span class="nt">figure</span><span class="nc">.code</span> <span class="nc">.highlight</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">@include</span><span class="nd"> selection</span><span class="p">(</span><span class="nf">adjust-color</span><span class="p">(</span><span class="mh">#000000</span><span class="o">,</span> <span class="nv">$lightness</span><span class="o">:</span> <span class="mi">85</span><span class="kt">%</span><span class="o">,</span> <span class="nv">$saturation</span><span class="o">:</span> <span class="mi">-65</span><span class="kt">%</span><span class="p">));</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
-<p>This is the 3<sup>rd</sup> time.</p>
+<h2 id="testing-other-redcarpet-markdown-text-formatting">Testing Other <code>redcarpet</code> Markdown Text Formatting</h2>
 
-<p><mark>This is highlighted</mark></p>
+<p>Test of a footnote.<sup id="fnref1"><a href="#fn1">1</a></sup><sup id="fnref2"><a href="#fn2">2</a></sup></p>
 
-<p>This sentence has a footnote.<sup id="fnref1"><a href="#fn1">1</a></sup></p>
+<p>Test of a &quot;quote&quot;.</p>
 
-<p>And so is this.<sup id="fnref1"><a href="#fn1">1</a></sup><sup id="fnref2"><a href="#fn2">2</a></sup></p>
+<p>Test of <del>striking out text</del>.</p>
+
+<p>Test of <u>underlining text</u> and <em>italicizing text</em>.</p>
+
+<p>Test of using a superscript: 1<sup>st</sup>, 2<sup>nd</sup>, and 3<sup>rd</sup>.</p>
+
+<p>Test of <mark>highlighting text</mark>.</p>
+
+<p>Test of <a href="#other-misc-changes">text anchors</a></p>
+
+<!-- footnotes -->
 
 <div class="footnotes">
 <hr>

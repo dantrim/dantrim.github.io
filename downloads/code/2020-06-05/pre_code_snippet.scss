@@ -1,0 +1,31 @@
+.pre-code {
+  font-family: $mono !important;
+  overflow: scroll;
+  overflow-y: hidden;
+  display: block;
+  padding: .8em;
+  overflow-x: auto;
+  line-height: 1.45em;
+  background: #ffffff $noise-bg !important;
+  color: $base1 !important;
+  span { font-style: normal !important; font-weight: bold !important; }
+
+  .hll { background-color: #f8f8f8; border: 1px solid #ccc; padding: 6px 10px; border-radius: 3px; }
+  .c { color: teal; font-style: italic; }
+  .err { color: #a61717; background-color: #e3d2d2; }
+  .k { font-weight: bold; }
+  .o { font-weight: bold; }
+  .cm { color: #999988; font-style: italic; }
+  .cp { color: #999999; font-weight: bold; }
+  // ...
+  // many lines not shown
+  // ...
+  .ss { color: #990073; }
+  .bp { color: #999999; }
+  .vc { color: teal; }
+  .vg { color: teal; }
+  .vi { color: teal; }
+  .il { color: #009999; }
+  .gc { color: #999; background-color: #EAF2F5; }
+  div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}
+}

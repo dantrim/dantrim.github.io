@@ -1,0 +1,3 @@
+.gist .highlight, figure.code .highlight {
+  @include selection(adjust-color(#000000, $lightness: 85%, $saturation: -65%));
+}
