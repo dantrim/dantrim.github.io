@@ -9,3 +9,6 @@ git init
 git remote add origin git@github.com:<repo>.git
 git pull origin master # master is the public view of the blog
 cd ..
+# make changes under source/_posts/
+rake generate
+rake deploy

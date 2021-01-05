@@ -94,14 +94,80 @@ github &hellip;">
 an Octopress blog is, specifically when hosting it on my personal
 <a href="https://dantrim.github.io">github pages website</a>.</p>
 
+<h2 id="setting-up-the-repository-and-setting-up-octopress">Setting Up the Repository and Setting Up Octopress</h2>
+
+<p>After upgrading my laptop and OS to <code>macOS Catalina</code> (<code>v10.15</code>) I found that some
+of the steps were not working, at least not as I remember.
+It has been several months since I last toyed around with this blog.</p>
+
+<h3 id="ruby-version">Ruby Version</h3>
+
+<p>I found that the latest version of Ruby did not seem to work, at least when I was using
+Ruby <code>v3.0.0</code> that was installed with <code>brew install ruby</code> on my new laptop. Following the setup
+steps on the <a href="http://octopress.org/docs/setup/">Octopress docs page</a> for installing the dependencies,
+I found that the <code>bundle install</code> step would always fail.
+Given that I am not an expert with Ruby (nor do I ever really care to be),
+the errors were a bit confusing.
+I figured that it no longer worked, compared to my older laptop&#39;s setup,
+given the newer version of Ruby (and all of the associated packages).</p>
+
+<p>Using <a href="https://github.com/rbenv/rbenv">rbenv</a> which appears to be similar
+to Python&#39;s <a href="https://github.com/pyenv/pyenv">pyenv</a>, I installed an earlier version
+of Ruby, version <code>2.6.5</code>:
+<figure class='code'><figcaption> <a href='/downloads/code/2020-06-05/setup_ruby.sh' target='_blank'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:<span class="k">${</span><span class="nv">PATH</span><span class="k">}</span> <span class="c"># in ~/.bash_profile</span>
+</span><span class='line'>rbenv install 2.6.5
+</span><span class='line'>rbenv <span class="nb">local </span>2.6.5
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h3 id="setting-up-for-writing-source">Setting Up for Writing Source</h3>
+
+<p>Once the adequate version of Ruby is made available (following the discussion
+<a href="#ruby-version">above</a>), I follow the steps listed below for a complete and
+fresh checkout and install of the blog:
+<figure class='code'><figcaption> <a href='/downloads/code/2020-06-05/setup_env.sh' target='_blank'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git clone <a href="https://github.com/dantrim/dantrim.github.io">https://github.com/dantrim/dantrim.github.io</a>
+</span><span class='line'><span class="nb">cd </span>dantrim.github.io
+</span><span class='line'>git checkout <span class="nb">source</span>
+</span><span class='line'>gem install bundler
+</span><span class='line'>rbenv <span class="nb">local </span>2.6.5 <span class="c"># setup the tested ruby version via rbenv</span>
+</span><span class='line'>bundle install
+</span><span class='line'>rake install
+</span></code></pre></td></tr></table></div></figure>
+At this point, calling <code>rake new_post[&quot;&lt;name&gt;&quot;]</code> should succeed.</p>
+
+<h2 id="writing-new-blog-posts">Writing New Blog Posts</h2>
+
+<p>In order to get setup with writing a new blog post, the following sequence looks
+to be sufficient:
+<figure class='code'><figcaption> <a href='/downloads/code/2020-06-05/start_writing_post.sh' target='_blank'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;&lt;post title&gt;&quot;</span><span class="o">]</span>
+</span><span class='line'>rake generate
+</span><span class='line'>rake watch
+</span><span class='line'>rake preview <span class="c"># in second shell, blog available at <a href="http://localhost:4000/">http://localhost:4000/</a></span>
+</span></code></pre></td></tr></table></div></figure></p>
+
 <h2 id="deploying-blog-entries-after-a-fresh-clone">Deploying Blog Entries after a Fresh Clone</h2>
 
 <p>If you checkout your blog&#39;s repository in a new location (e.g.
 a new directory or a new machine), you will first need to sync
 up the <code>_deploy</code> directory with the remote&#39;s <code>master</code> branch
 before running <code>rake deploy</code>. Run the following steps to achieve
-this:</p>
-
+this:
 <figure class='code'><figcaption> <a href='/downloads/code/2020-06-05/update_deploy.sh' target='_blank'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -114,18 +180,25 @@ this:</p>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#!/bin/bash</span>
 </span><span class='line'>
-</span><span class='line'>git clone git@github.com:&lt;repo&gt;.git
+</span><span class='line'>git clone <a href="mailto:git@github.com">git@github.com</a>:&lt;repo&gt;.git
 </span><span class='line'><span class="nb">cd</span> &lt;repo&gt;
 </span><span class='line'>git checkout <span class="nb">source</span> <span class="c"># source is the working branch</span>
 </span><span class='line'>mkdir _deploy
 </span><span class='line'><span class="nb">cd </span>_deploy
 </span><span class='line'>git init
-</span><span class='line'>git remote add origin git@github.com:&lt;repo&gt;.git
+</span><span class='line'>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:&lt;repo&gt;.git
 </span><span class='line'>git pull origin master <span class="c"># master is the public view of the blog</span>
 </span><span class='line'><span class="nb">cd</span> ..
+</span><span class='line'><span class="c"># make changes under source/_posts/</span>
+</span><span class='line'>rake generate
+</span><span class='line'>rake deploy
 </span></code></pre></td></tr></table></div></figure>
+More information can be found on the <a href="http://octopress.org/docs/deploying/github/">Octopress deploy docs</a>.</p>
 
 <h2 id="other-misc-changes">Other Misc Changes</h2>
 
@@ -382,7 +455,7 @@ the  <code>.gist .highlight</code> block within the the <code>sass/partials/_syn
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2020 - Daniel Joseph Antrim -
+  Copyright &copy; 2021 - Daniel Joseph Antrim -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
