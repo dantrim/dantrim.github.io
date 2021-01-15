@@ -1,0 +1,5 @@
+---
+layout: {{ layout }}
+title: "{{ title }}"
+---
+{% twitter_script_tag %}

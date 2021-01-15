@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Test Post"
+date: 2021-01-14T16:59:55-08:00
+---
+
+This is a test post.
+
+With some code:
+
+```python
+import matplotlib.pyplot as plt
+
+def foo() :
+    print("Hello world")
+
+if __name__ == "__main__" :
+    foo()
+```
+
+```c++
+#include <iostream>
+
+int main(int argc, char* argv[]) {
+    std::cout << "hello world" << std::endl;
+}
+```
