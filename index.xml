@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Daniel Joseph Antrim</title>
+        <link>https://dantrim.github.io/</link>
+        <description>This is My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>dantrim1023@gmail.com (Daniel Joseph Antrim)</managingEditor>
+            <webMaster>dantrim1023@gmail.com (Daniel Joseph Antrim)</webMaster>
+            <atom:link href="https://dantrim.github.io/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
+</rss>
