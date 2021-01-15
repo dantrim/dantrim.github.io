@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.min.css",
-	"sourceRoot": "/Users/dantrim/workarea/hugo_test/quickstart",
+	"sourceRoot": "/Users/dantrim/workarea/hugo/tmp/dantrim_hugo_site",
 	"sources": [
 		"themes/LoveIt/assets/css/style.scss",
 		"themes/LoveIt/assets/css/_variables.scss",
