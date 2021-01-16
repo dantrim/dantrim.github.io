@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/dantrim.github.io\/my-first-post\/"
-        },"genre": "posts","keywords": "test, test2","wordcount":  306 ,
+        },"genre": "posts","keywords": "test, test2","wordcount":  368 ,
         "url": "https:\/\/dantrim.github.io\/my-first-post\/","datePublished": "2021-01-15T09:36:00-08:00","dateModified": "2021-01-15T09:36:00-08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">First Post Testing Hugo</h1><h2 class="single-subtitle">And Other Stuff Too</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Daniel Joseph Antrim</a></span>&nbsp;<span class="post-category">included in <a href="/categories/foo/"><i class="far fa-folder fa-fw"></i>foo</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-15">2021-01-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;306 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-15">2021-01-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;368 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -143,6 +143,46 @@
 <p>Dummy text.</p>
 <h2 id="some-code-examples">Some Code Examples</h2>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vhd" data-lang="vhd"><span class="k">library</span> <span class="nn">ieee</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.std_logic_1164.</span><span class="k">all</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">ieee.numeric_std.</span><span class="k">all</span><span class="p">;</span>
+
+<span class="k">entity</span> <span class="nc">top</span> <span class="k">is</span>
+  <span class="k">port</span> <span class="p">(</span>
+    <span class="n">clk</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">rst_n</span> <span class="o">:</span> <span class="k">in</span> <span class="kt">std_logic</span><span class="p">;</span>
+    <span class="n">segments</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">6</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">digit_sel</span> <span class="o">:</span> <span class="k">out</span> <span class="kt">std_logic</span>
+  <span class="p">);</span>
+<span class="k">end</span> <span class="nc">top</span><span class="p">;</span>
+
+<span class="k">architecture</span> <span class="nc">rtl</span> <span class="k">of</span> <span class="nc">top</span> <span class="k">is</span>
+<span class="k">begin</span>
+  <span class="n">segments</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="k">others</span> <span class="o">=&gt;</span> <span class="sc">&#39;0&#39;</span><span class="p">);</span>
+<span class="k">end</span> <span class="k">architecture</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
